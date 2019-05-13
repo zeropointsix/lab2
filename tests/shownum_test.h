@@ -18,7 +18,7 @@ TEST(shownum_test, emptyfile) {
     
     text txt = create_text();
     char inFile[MAXLINE];
-    TRAVIS ? strncpy(inFile, "tests/input/empty.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/empty.txt", MAXLINE);
+    TRAVIS ? strncpy(inFile, "tests/input/emptyfile.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/emptyfile.txt", MAXLINE);
     load(txt, inFile);
     
     shownum(txt);
