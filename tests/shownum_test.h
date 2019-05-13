@@ -14,10 +14,14 @@ TEST(shownum_test, emptyfile) {
         printf("Cannot open file for output");
         FAIL();
     }
-    else {
-        fclose(outputFile);
-        SUCCEED();
-    }
+    int oldstdOut = changeStream(outputFile);
+    
+    text txt = create_text();
+    char inFile[MAXLINE];
+    TRAVIS ? strncpy(inFile, "tests/input/empty.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/empty.txt", MAXLINE);
+    load(txt, inFile);
+    
+    fclose(outputFile);
 }
 
 #endif // SHOWUPPER_TEST_H
