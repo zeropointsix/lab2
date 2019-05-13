@@ -1,2 +1,1 @@
-1 Simple
-2 Text|
+Simple|
