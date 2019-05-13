@@ -13,7 +13,7 @@
 /**
  * Загружает содержимое указанного файла
  */
-void load(text txt, char *filename) {
+void load(text txt, const char *filename) {
   FILE *f;
 
   char buf[MAXLINE + 1];
@@ -31,4 +31,5 @@ void load(text txt, char *filename) {
   while (fgets(buf, MAXLINE, f)) {
     append_line(txt, buf);
   }
+  fclose(f);
 }

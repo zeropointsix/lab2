@@ -22,13 +22,15 @@ int main() {
 
   /* Создаем объект для представления текста */
   text txt = create_text();
+  char* fget;
+  UNUSED(fget);
 
   /* Цикл обработки команд */
   while (1) {
     printf("ed > ");
 
     /* Получаем команду */
-    fgets(cmdline, MAXLINE, stdin);
+    fget = fgets(cmdline, MAXLINE, stdin);
 
     /* Извлекаем имя команды */
     if ((cmd = strtok(cmdline, " \n")) == NULL) {
@@ -51,42 +53,31 @@ int main() {
       continue;
     }
 
-    /* Сохраняем текст в указанный файл */
-    if (strcmp(cmd, "save") == 0) {
-      if ((arg = strtok(NULL, " \n")) == NULL) {
-        fprintf(stderr, "Usage: save filename\n");
-      } else {
-        save(txt, arg);
-      }
-      continue;
-    }
-
-    /* Выводим текст */
-    if (strcmp(cmd, "show") == 0) {
-      show(txt);
-      continue;
-    }
-
-    /* Выводим содержимое с нумерацией строк */
+    /* Переводим в верхний регистр */
     if (strcmp(cmd, "shownum") == 0) {
       shownum(txt);
       continue;
     }
 
-    /* Перемещаем курсор на один символ вправо, если это возможно */
-    if (strcmp(cmd, "mcf") == 0) {
-      mcf(txt);
+    if (strcmp(cmd, "show") == 0) {
+      show(txt);
       continue;
     }
 
-    /* Удаляем первую строку */
+    /* Удаляем первую пустую строку */
     if (strcmp(cmd, "rh") == 0) {
       rh(txt);
       continue;
     }
 
+    /* Перемещаем курсор в начало строки */
+    if (strcmp(cmd, "mcf") == 0) {
+      mcf(txt);
+      continue;
+    }
+
     /* Если команда не известна */
-    fprintf(stderr, "Unknown command (known commands: \nload <filename>, quit, save <filename>, show, shownum, mcf, rh) %s\n", cmd);
+    fprintf(stderr, "Unknown command: %s\n", cmd);
   }
 
   return 0;

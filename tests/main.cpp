@@ -1,5 +1,6 @@
-#include "tst_test1.h"
-#include "fibonachi_test.h"
+#include "shownum_test.h"
+#include "rh_test.h"
+#include "mcf_test.h"
 
 #include <gtest/gtest.h>
 

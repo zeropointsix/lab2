@@ -24,7 +24,7 @@ void show(text txt);
 /**
  * Загружает содержимое указанного файла
  */
-void load(text txt, char *filename);
+void load(text txt, const char *filename);
 
 /**
  * Выводит текст с капитализацией символов, которым предшествует пробел
