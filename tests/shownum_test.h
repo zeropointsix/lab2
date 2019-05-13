@@ -23,7 +23,6 @@ TEST(shownum_test, emptyfile) {
     
     shownum(txt);
     
-    fclose(outputFile);
     returnStream(outputFile, oldstdOut);
     
     FILE *expectedData;
@@ -36,8 +35,6 @@ TEST(shownum_test, emptyfile) {
     } else {
         FAIL();
     }
-    fclose(expectedData);
-    fclose(outputData);
 }
 
 #endif // SHOWUPPER_TEST_H
