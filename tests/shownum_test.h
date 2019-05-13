@@ -11,14 +11,14 @@ TEST(shownum_test, emptyfile) {
     FILE *outputFile;
     TRAVIS ? outputFile = fopen("tests/output/output1.txt", "wb") : outputFile = fopen("../../lab2/tests/output/output1.txt", "wb");
     if (outputFile == NULL) {
-        printf("Cannot open file for output");
+        printf("Cannot open file for output. ");
         FAIL();
     }
     int oldstdOut = changeStream(outputFile);
     
     text txt = create_text();
     char inFile[MAXLINE];
-    TRAVIS ? strncpy(inFile, "tests/input/emptyfile.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/emptyfile.txt", MAXLINE);
+    TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
     load(txt, inFile);
     
     shownum(txt);
@@ -27,7 +27,7 @@ TEST(shownum_test, emptyfile) {
     returnStream(outputFile, oldstdOut);
     
     FILE *expectedData;
-    TRAVIS ? expectedData = fopen("tests/expected/shownum_test1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/shownum_test1.txt", "r");
+    TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
 
