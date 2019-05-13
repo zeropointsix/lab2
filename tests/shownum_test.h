@@ -21,8 +21,21 @@ TEST(shownum_test, emptyfile) {
     TRAVIS ? strncpy(inFile, "tests/input/empty.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/empty.txt", MAXLINE);
     load(txt, inFile);
     
+    shownum(txt);
+    
     fclose(outputFile);
-    SUCCEED();
+    returnStream(outputFile, oldstdOut);
+    
+    FILE *expectedData;
+    TRAVIS ? expectedData = fopen("tests/expected/shownum_test1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/shownum_test1.txt", "r");
+    FILE *outputData;
+    TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
+
+    if (executeTest(expectedData, outputData) == 1) {
+        SUCCEED();
+    } else {
+        FAIL();
+    }
 }
 
 #endif // SHOWUPPER_TEST_H
