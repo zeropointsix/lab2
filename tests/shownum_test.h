@@ -22,6 +22,7 @@ TEST(shownum_test, emptyfile) {
     load(txt, inFile);
     
     fclose(outputFile);
+    SUCCEED();
 }
 
 #endif // SHOWUPPER_TEST_H
