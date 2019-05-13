@@ -36,6 +36,8 @@ TEST(shownum_test, emptyfile) {
     } else {
         FAIL();
     }
+    fclose(expectedData);
+    fclose(outputData);
 }
 
 #endif // SHOWUPPER_TEST_H
