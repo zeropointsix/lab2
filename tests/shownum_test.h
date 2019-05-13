@@ -21,7 +21,7 @@ TEST(shownum_test, emptyfile) {
     TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
     load(txt, inFile);
     
-    shownum(txt);
+    show(txt);
     
     returnStream(outputFile, oldstdOut);
     
