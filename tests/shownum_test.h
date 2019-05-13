@@ -8,8 +8,16 @@ extern "C" {
 
 
 TEST(shownum_test, emptyfile) {
-    SUCCEED();
+    FILE *outputFile;
+    TRAVIS ? outputFile = fopen("tests/output/output1.txt", "wb") : outputFile = fopen("../../testing2/tests/output/output1.txt", "wb");
+    if (outputFile == NULL) {
+        printf("Cannot open file for output");
+        FAIL();
+    }
+    else {
+        fclose(outputFile);
+        SUCCEED();
+    }
 }
-
 
 #endif // SHOWUPPER_TEST_H
