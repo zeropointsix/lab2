@@ -7,7 +7,7 @@ extern "C" {
 }
 
 
-TEST(shownum_test, emptyfile) {
+TEST(shownum_test, simpletest) {
     FILE *outputFile;
     TRAVIS ? outputFile = fopen("tests/output/output1.txt", "wb") : outputFile = fopen("../../lab2/tests/output/output1.txt", "wb");
     if (outputFile == NULL) {
