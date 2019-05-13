@@ -14,7 +14,7 @@ TEST(shownum_test, emptyfile) {
     FILE *outputFile;
     TRAVIS ? outputFile = fopen("tests/output/output1.txt", "wb") : outputFile = fopen("../../lab2/tests/output/output1.txt", "wb");
     if (outputFile == NULL) {
-        printf("Cannot open file for output");
+        printf("Cannot open file for output. ");
         FAIL();
     }
     int oldstdOut = changeStream(outputFile);
