@@ -39,7 +39,7 @@ int executeTest(FILE* expectedData, FILE* outputData) {
     char expectedLine[MAXLINE];
     char outputLine[MAXLINE];
 
-    while ((fgets(expectedLine, MAXLINE, expectedData) != NULL) | (fgets(outputLine, MAXLINE, outputData) != NULL)) {
+    while ((fgets(expectedLine, MAXLINE, expectedData) != NULL) || (fgets(outputLine, MAXLINE, outputData) != NULL)) {
         expectedLine[strlen(expectedLine) - 1] = '\0';
         outputLine[strlen(outputLine) - 1] = '\0';
         printf("\nExpected: >%s<\n", expectedLine);
