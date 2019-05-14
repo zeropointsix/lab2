@@ -38,12 +38,15 @@ int executeTest(FILE* expectedData, FILE* outputData) {
 
     char expectedLine[MAXLINE];
     char outputLine[MAXLINE];
-
-    while ((fgets(expectedLine, MAXLINE, expectedData) != NULL) && (fgets(outputLine, MAXLINE, outputData) != NULL)) {
+    
+    
+    while (!feof (outputData) && !feof (expectedData)) {
+        fgets(expectedLine, MAXLINE, expectedData)
+        fgets(outputLine, MAXLINE, outputData)
         expectedLine[strlen(expectedLine) - 1] = '\0';
         outputLine[strlen(outputLine) - 1] = '\0';
-        printf("\nExpected: >%s<\n", expectedLine);
-        printf("Output: >%s<\n", outputLine);
+        printf("\nExpected: %s\\\n", expectedLine);
+        printf("Output: %s\\\n", outputLine);
         //printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
         if (strcmp(expectedLine, outputLine) != 0) return 0;
         else printf("goood");
