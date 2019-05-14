@@ -85,7 +85,7 @@ TEST(mcf_test, next_line) {
     TRAVIS ? strncpy(inFile, "tests/input/input12.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input12.txt", MAXLINE);
     load(txt, inFile);
 
-    mwcrsr(txt, 1, 10);
+    mwcrsr(txt, 0, 9);
     mcf(txt);
     mcf(txt);
     mcf(txt);
