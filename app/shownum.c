@@ -38,11 +38,13 @@ static void shownum_line(int index, char *contents, int cursor, void *data) {
     strncpy(output_line, line, cursor);
     output_line[cursor] = '|';
     strcpy(output_line + cursor + 1, line + cursor);
-    printf(MAGENTA "%d" RESET " %s", index + 1, output_line);
+    //printf(MAGENTA "%d" RESET " %s", index + 1, output_line);
+    printf("%d %s", index + 1, output_line);
     if (output_line[strlen(output_line) - 1] != '\n')
       printf("\n");
   } else {
-    printf(MAGENTA "%d" RESET " %s", index + 1, line);
+    //printf(MAGENTA "%d" RESET " %s", index + 1, line);
+      printf("%d %s", index + 1, line);
     if (line[strlen(line) - 1] != '\n')
       printf("\n");
   }
