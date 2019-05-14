@@ -15,7 +15,7 @@ TEST(shownum_test, simpletest) {
     }
     else printf("Output file opened. \n");
     
-    int oldstdOut = changeStream(outputFile);
+    //int oldstdOut = changeStream(outputFile);
     
     text txt = create_text();
     char inFile[MAXLINE];
@@ -23,8 +23,8 @@ TEST(shownum_test, simpletest) {
     load(txt, inFile);
     
     shownum(txt);
-    
-    returnStream(outputFile, oldstdOut);
+    fclose(outputFile);
+    //returnStream(outputFile, oldstdOut);
     
     FILE *expectedData;
     TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
