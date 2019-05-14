@@ -86,9 +86,9 @@ TEST(mcf_test, next_line) {
     load(txt, inFile);
 
     mwcrsr(txt, 1, 10);
-    mcf(txt);
-    mcf(txt);
-    mcf(txt);
+    //mcf(txt);
+    //mcf(txt);
+    //mcf(txt);
     show(txt);
 
     returnStream(outputFile, oldstdOut);
