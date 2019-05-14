@@ -44,6 +44,7 @@ TEST(shownum_test, simpletest) {
         printf("Cannot expectedData file. ");
         FAIL();
     }
+    else printf("expectedData file opened. ");
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
 
