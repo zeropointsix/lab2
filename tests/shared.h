@@ -41,8 +41,8 @@ int executeTest(FILE* expectedData, FILE* outputData) {
     
     
     while (!feof (outputData) && !feof (expectedData)) {
-        if(fgets(expectedLine, MAXLINE, expectedData)!=NULL) expectedLine[strlen(expectedLine)] = '\0';
-        if(fgets(outputLine, MAXLINE, outputData)!=NULL) outputLine[strlen(outputLine)] = '\0';
+        if(fgets(expectedLine, MAXLINE, expectedData)==NULL) printf("pizdec"); //expectedLine[strlen(expectedLine)] = '\0';
+        if(fgets(outputLine, MAXLINE, outputData)==NULL) printf("pizdec"); //outputLine[strlen(outputLine)] = '\0';
         
         
         //printf("\nExpected: %s\\\n", expectedLine);
