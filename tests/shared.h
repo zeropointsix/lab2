@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-#define TRAVIS 1
+#define TRAVIS 0
 
 extern "C" {
 #include "common.h"
