@@ -13,6 +13,8 @@ TEST(shownum_test, simpletest) {
         printf("Cannot open file for output. ");
         FAIL();
     }
+    else printf("Output file opened. \n");
+    
     int oldstdOut = changeStream(outputFile);
     
     text txt = create_text();
@@ -20,7 +22,6 @@ TEST(shownum_test, simpletest) {
     TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
     load(txt, inFile);
     
-    printf("Works?");
     shownum(txt);
     
     returnStream(outputFile, oldstdOut);
