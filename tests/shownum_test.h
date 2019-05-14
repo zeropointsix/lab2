@@ -45,12 +45,12 @@ TEST(shownum_test, simpletest) {
 
     printf("OutputData: \n");
     while(!feof (outputData)) {
-        if (fgets(inFile, MAXLINE, outputData1))
+        if (fgets(inFile, MAXLINE, outputData))
         printf("%s", inFile);
     }
     printf("\nExpectedData: \n");
     while(!feof (expectedData)) {
-        if (fgets(inFile, MAXLINE, outputData1))
+        if (fgets(inFile, MAXLINE, outputData))
         printf("%s", inFile);
     }
     
