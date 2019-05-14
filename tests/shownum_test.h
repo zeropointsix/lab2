@@ -21,7 +21,7 @@ TEST(shownum_test, simpletest) {
     char inFile[MAXLINE];
     TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
     load(txt, inFile);
-    
+    printf("%s\n", inFile);
     shownum(txt);
     fclose(outputFile);
     //returnStream(outputFile, oldstdOut);
