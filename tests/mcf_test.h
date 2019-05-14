@@ -84,7 +84,7 @@ TEST(mcf_test, next_line) {
     char inFile[MAXLINE];
     TRAVIS ? strncpy(inFile, "tests/input/input12.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input12.txt", MAXLINE);
     load(txt, inFile);
-
+    
     mwcrsr(txt, 0, 9);
     mcf(txt);
     mcf(txt);
@@ -98,7 +98,6 @@ TEST(mcf_test, next_line) {
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output12.txt", "r") : outputData = fopen("../../lab2/tests/output/output12.txt", "r");
 
-    
     if (executeTest(expectedData, outputData) == 1) {
         SUCCEED();
     } else {
