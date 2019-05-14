@@ -8,61 +8,6 @@ extern "C" {
 
 TEST(shownum_test, simpletest) {
     FILE *outputFile;
-    TRAVIS ? outputFile = fopen("tests/output/output1.txt", "wb") : outputFile = fopen("../../lab2/tests/output/output1.txt", "wb");
-    if (outputFile == NULL) {
-        printf("Cannot open file for output. ");
-        FAIL();
-    }
-    
-    int oldstdOut = changeStream(outputFile);
-    
-    text txt = create_text();
-    char inFile[MAXLINE];
-    TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
-    load(txt, inFile);
-    
-    //printf("%s\n", inFile); works
-    
-    shownum(txt); //works
-   
-    returnStream(outputFile, oldstdOut);
-    
-    /*                                  works just fine
-    FILE *outputData1;
-    TRAVIS ? outputData1 = fopen("tests/output/output1.txt", "r") : outputData1 = fopen("../../lab2/tests/output/output1.txt", "r");
-    while(!feof (outputData1)) {
-        if (fgets(inFile, MAXLINE, outputData1))
-        printf("%s", inFile);
-    }
-    fclose(outputData1);
-    */
-
-    FILE *expectedData;
-    TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "rb") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "rb");
-    FILE *outputData;
-    TRAVIS ? outputData = fopen("tests/output/output1.txt", "rb") : outputData = fopen("../../lab2/tests/output/output1.txt", "rb");
-    /*
-    printf("OutputData: \n");
-    while(!feof (outputData)) {
-        if (fgets(inFile, MAXLINE, outputData))
-        printf("%s", inFile);
-    }
-    printf("\nExpectedData: \n");
-    while(!feof (expectedData)) {
-        if (fgets(inFile, MAXLINE, expectedData))
-        printf("%s", inFile);
-    }
-    */
-    
-    if (executeTest(expectedData, outputData) == 1) {
-        SUCCEED();
-    } else {
-        FAIL();
-    }
-}
-
-TEST(shownum_test, emptyfile) {
-    FILE *outputFile;
     TRAVIS ? outputFile = fopen("tests/output/output2.txt", "wb") : outputFile = fopen("../../lab2/tests/output/output2.txt", "wb");
     if (outputFile == NULL) {
         printf("Cannot open file for output. ");
@@ -83,6 +28,36 @@ TEST(shownum_test, emptyfile) {
     TRAVIS ? expectedData = fopen("tests/expected/expected2.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected2.txt", "r");
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output2.txt", "r") : outputData = fopen("../../lab2/tests/output/output2.txt", "r");
+
+    if (executeTest(expectedData, outputData) == 1) {
+        SUCCEED();
+    } else {
+        FAIL();
+    }
+}
+
+TEST(shownum_test, emptyfile) {
+    FILE *outputFile;
+    TRAVIS ? outputFile = fopen("tests/output/output1.txt", "wb") : outputFile = fopen("../../lab2/tests/output/output1.txt", "wb");
+    if (outputFile == NULL) {
+        printf("Cannot open file for output. ");
+        FAIL();
+    }
+    int oldstdOut = changeStream(outputFile);
+
+    text txt = create_text();
+    char inFile[MAXLINE];
+    TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
+    load(txt, inFile);
+
+    shownum(txt);
+
+    returnStream(outputFile, oldstdOut);
+
+    FILE *expectedData;
+    TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
+    FILE *outputData;
+    TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
 
     if (executeTest(expectedData, outputData) == 1) {
         SUCCEED();
