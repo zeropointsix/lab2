@@ -15,7 +15,7 @@ TEST(shownum_test, simpletest) {
     }
     else printf("Output file opened. \n");
     
-    //int oldstdOut = changeStream(outputFile);
+    int oldstdOut = changeStream(outputFile);
     
     text txt = create_text();
     char inFile[MAXLINE];
