@@ -13,7 +13,6 @@ TEST(shownum_test, simpletest) {
         printf("Cannot open file for output. ");
         FAIL();
     }
-    else printf("Output file opened. \n");
     
     int oldstdOut = changeStream(outputFile);
     
