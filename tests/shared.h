@@ -43,7 +43,10 @@ int executeTest(FILE* expectedData, FILE* outputData) {
         int i=0;
         printf("Expected line %zd: \"%s\", output line %zd: \"%s\" \n", strlen(expectedLine), expectedLine,  strlen(outputLine), outputLine);
         for(i=0;((expectedLine[i]!='\0')&&(expectedLine[i]!='\n')&&(outputLine[i]!='\0')&&(outputLine[i]!='\n'));i++){
-            if(expectedLine[i]!=outputLine[i]) return 0;
+            if(expectedLine[i]!=outputLine[i]) {
+                fclose(expectedData); fclose(outputData);
+                return 0;
+            }
         }
         /*
         expectedLine[strlen(expectedLine) - 1] = '\0';
@@ -52,7 +55,7 @@ int executeTest(FILE* expectedData, FILE* outputData) {
         printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
         if (strcmp(expectedLine, outputLine) != 0) return 0;*/
     }
-
+    fclose(expectedData); fclose(outputData);
     return 1;
 }
 
