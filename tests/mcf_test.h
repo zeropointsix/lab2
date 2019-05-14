@@ -98,9 +98,6 @@ TEST(mcf_test, next_line) {
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output12.txt", "r") : outputData = fopen("../../lab2/tests/output/output12.txt", "r");
 
-    while(!feof(outputData)){
-        printf("%s", fgets(inFile, MAXLINE, outputData));
-    }
     
     if (executeTest(expectedData, outputData) == 1) {
         SUCCEED();
