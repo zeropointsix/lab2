@@ -28,6 +28,7 @@ TEST(shownum_test, simpletest) {
    
     returnStream(outputFile, oldstdOut);
     
+    /*                                  works just fine
     FILE *outputData1;
     TRAVIS ? outputData1 = fopen("tests/output/output1.txt", "r") : outputData1 = fopen("../../lab2/tests/output/output1.txt", "r");
     while(!feof (outputData1)) {
@@ -35,13 +36,24 @@ TEST(shownum_test, simpletest) {
         printf("%s", inFile);
     }
     fclose(outputData1);
-    
-    /////
+    */
+
     FILE *expectedData;
     TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
 
+    printf("OutputData: \n");
+    while(!feof (outputData)) {
+        if (fgets(inFile, MAXLINE, outputData1))
+        printf("%s", inFile);
+    }
+    printf("\nExpectedData: \n");
+    while(!feof (expectedData)) {
+        if (fgets(inFile, MAXLINE, outputData1))
+        printf("%s", inFile);
+    }
+    
     if (executeTest(expectedData, outputData) == 1) {
         SUCCEED();
     } else {
