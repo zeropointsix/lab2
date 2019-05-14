@@ -47,7 +47,7 @@ TEST(shownum_test, simpletest) {
     else printf("expectedData file opened. ");
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
-
+    /*
     printf("OutputData: \n");
     while(!feof (outputData)) {
         if (fgets(inFile, MAXLINE, outputData))
@@ -58,6 +58,7 @@ TEST(shownum_test, simpletest) {
         if (fgets(inFile, MAXLINE, expectedData))
         printf("%s", inFile);
     }
+    */
     
     if (executeTest(expectedData, outputData) == 1) {
         SUCCEED();
