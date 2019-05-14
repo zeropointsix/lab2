@@ -45,9 +45,9 @@ int executeTest(FILE* expectedData, FILE* outputData) {
         if(fgets(outputLine, MAXLINE, outputData)!=NULL) outputLine[strlen(outputLine)] = '\0';
         
         
-        printf("\nExpected: %s\\\n", expectedLine);
-        printf("Output: %s\\\n", outputLine);
-        //printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
+        //printf("\nExpected: %s\\\n", expectedLine);
+        //printf("Output: %s\\\n", outputLine);
+        printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
         if (strcmp(expectedLine, outputLine) != 0) return 0;
         else printf("goood");
     }
