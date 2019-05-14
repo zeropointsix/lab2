@@ -40,6 +40,10 @@ TEST(shownum_test, simpletest) {
 
     FILE *expectedData;
     TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
+    if (expectedData == NULL) {
+        printf("Cannot expectedData file. ");
+        FAIL();
+    }
     FILE *outputData;
     TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
 
