@@ -41,10 +41,10 @@ int executeTest(FILE* expectedData, FILE* outputData) {
     
     
     while (!feof (outputData) && !feof (expectedData)) {
-        if(fgets(expectedLine, MAXLINE, expectedData)==NULL) expectedLine[strlen(expectedLine)-1] = '\0'; //printf("pizdec");
-        if(fgets(outputLine, MAXLINE, outputData)==NULL) outputLine[strlen(outputLine)-1] = '\0'; //printf("pizdec");
-        
-        
+        if(fgets(expectedLine, MAXLINE, expectedData)==NULL) printf("pizdec");
+        if(fgets(outputLine, MAXLINE, outputData)==NULL) printf("pizdec");
+        expectedLine[strlen(expectedLine)-1] = '\0';
+        outputLine[strlen(outputLine)-1] = '\0';
         //printf("\nExpected: %s\\\n", expectedLine);
         //printf("Output: %s\\\n", outputLine);
         printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
