@@ -21,11 +21,19 @@ TEST(shownum_test, simpletest) {
     char inFile[MAXLINE];
     TRAVIS ? strncpy(inFile, "tests/input/input1.txt", MAXLINE) : strncpy(inFile, "../../lab2/tests/input/input1.txt", MAXLINE);
     load(txt, inFile);
-    printf("%s\n", inFile);
-    shownum(txt);
-    fclose(outputFile);
-    //returnStream(outputFile, oldstdOut);
     
+    //printf("%s\n", inFile); works
+    
+    shownum(txt); //works
+   
+    returnStream(outputFile, oldstdOut);
+    
+    FILE *outputData;
+    TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
+    fgets(inFile, MAXLINE, outputData);
+    printf("%s\n", inFile);
+    
+    /////
     FILE *expectedData;
     TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
     FILE *outputData;
