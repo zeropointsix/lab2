@@ -38,16 +38,15 @@ int executeTest(FILE* expectedData, FILE* outputData) {
 
     char expectedLine[MAXLINE];
     char outputLine[MAXLINE];
-    
-    
-    while (!feof (outputData) && !feof (expectedData)) {
-        expectedLine[strlen(fgets(expectedLine, MAXLINE, expectedData))-1] = '\0';
-        outputLine[strlen(fgets(outputLine, MAXLINE, outputData))-1] = '\0';
+
+    while ((fgets(expectedLine, MAXLINE, expectedData) != NULL) | (fgets(outputLine, MAXLINE, outputData) != NULL)) {
+        expectedLine[strlen(expectedLine) - 1] = '\0';
+        outputLine[strlen(outputLine) - 1] = '\0';
         printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
         if (strcmp(expectedLine, outputLine) != 0) return 0;
-        else printf("goood");
     }
 
     return 1;
 }
+
 #endif // SHARED_H
