@@ -40,6 +40,8 @@ int executeTest(FILE* expectedData, FILE* outputData) {
     char outputLine[MAXLINE];
 
     while ((fgets(expectedLine, MAXLINE, expectedData) != NULL) | (fgets(outputLine, MAXLINE, outputData) != NULL)) {
+        printf("%s", expectedLine);
+        printf("%s", outputLine);
         expectedLine[strlen(expectedLine) - 1] = '\0';
         outputLine[strlen(outputLine) - 1] = '\0';
         printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
