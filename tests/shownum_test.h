@@ -28,10 +28,13 @@ TEST(shownum_test, simpletest) {
    
     returnStream(outputFile, oldstdOut);
     
-    FILE *outputData;
-    TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
-    fgets(inFile, MAXLINE, outputData);
+    FILE *outputData1;
+    TRAVIS ? outputData1 = fopen("tests/output/output1.txt", "r") : outputData1 = fopen("../../lab2/tests/output/output1.txt", "r");
+    if(fgets(inFile, MAXLINE, outputData1)==0)
+        printf("i cho blya?");
+    
     printf("%s\n", inFile);
+    fclose(outputData1);
     
     /////
     FILE *expectedData;
