@@ -9,7 +9,7 @@ addons:
   sonarcloud:
     organization: "zeropointsix-github"
     token:
-      secure: $SONAR_TOKEN
+      secure: e5d186929de4c3d299603616a8239e71da8e1f91
 
 script:
   - qmake
