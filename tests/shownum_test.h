@@ -55,7 +55,7 @@ TEST(shownum_test, simpletest) {
     }
     printf("\nExpectedData: \n");
     while(!feof (expectedData)) {
-        if (fgets(inFile, MAXLINE, outputData))
+        if (fgets(inFile, MAXLINE, expectedData))
         printf("%s", inFile);
     }
     
