@@ -43,7 +43,7 @@ int executeTest(FILE* expectedData, FILE* outputData) {
         //expectedLine[strlen(expectedLine) - 1] = '\0';
         //outputLine[strlen(outputLine) - 1] = '\0';
         printf("Expected line: \"%s\", output line: \"%s\" \n", expectedLine, outputLine);
-        if (memcmp(expectedLine, outputLine) != 0) return 0;
+        if (memcmp(expectedLine, outputLine, strlen(expectedLine)) != 0) return 0;
     }
 
     return 1;
