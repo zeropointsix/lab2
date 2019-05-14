@@ -30,10 +30,10 @@ TEST(shownum_test, simpletest) {
     
     FILE *outputData1;
     TRAVIS ? outputData1 = fopen("tests/output/output1.txt", "r") : outputData1 = fopen("../../lab2/tests/output/output1.txt", "r");
-    if(fgets(inFile, MAXLINE, outputData1)==0)
-        printf("i cho blya?");
-    
-    printf("%s\n", inFile);
+    while(!feof (outputData1)) {
+        if (fgets(inFile, MAXLINE, outputData1))
+        printf("%s", inFile);
+    }
     fclose(outputData1);
     
     /////
