@@ -38,9 +38,9 @@ TEST(shownum_test, simpletest) {
     */
 
     FILE *expectedData;
-    TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
+    TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "rb") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "rb");
     FILE *outputData;
-    TRAVIS ? outputData = fopen("tests/output/output1.txt", "r") : outputData = fopen("../../lab2/tests/output/output1.txt", "r");
+    TRAVIS ? outputData = fopen("tests/output/output1.txt", "rb") : outputData = fopen("../../lab2/tests/output/output1.txt", "rb");
     /*
     printf("OutputData: \n");
     while(!feof (outputData)) {
