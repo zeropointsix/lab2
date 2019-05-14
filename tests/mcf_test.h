@@ -78,7 +78,7 @@ TEST(mcf_test, next_line) {
         printf("Cannot open file for output. ");
         FAIL();
     }
-    //int oldstdOut = changeStream(outputFile);
+    int oldstdOut = changeStream(outputFile);
 
     text txt = create_text();
     char inFile[MAXLINE];
@@ -87,11 +87,11 @@ TEST(mcf_test, next_line) {
     
     mwcrsr(txt, 1, 9);
     mcf(txt);
-    mcf(txt);
+    //mcf(txt);
     show(txt);
 
-    //returnStream(outputFile, oldstdOut);
-/*
+    returnStream(outputFile, oldstdOut);
+
     FILE *expectedData;
     TRAVIS ? expectedData = fopen("tests/expected/expected12.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected12.txt", "r");
     FILE *outputData;
@@ -102,7 +102,6 @@ TEST(mcf_test, next_line) {
     } else {
         FAIL();
     }
- */
 }
 
 #endif // MCF_TEST_H
