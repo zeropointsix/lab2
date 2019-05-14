@@ -25,6 +25,7 @@ TEST(shownum_test, simpletest) {
     shownum(txt);
     
     returnStream(outputFile, oldstdOut);
+    fclose(outputFile);
     
     FILE *expectedData;
     TRAVIS ? expectedData = fopen("tests/expected/expected1.txt", "r") : expectedData = fopen("../../lab2/tests/expected/expected1.txt", "r");
