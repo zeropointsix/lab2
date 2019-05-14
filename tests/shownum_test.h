@@ -24,7 +24,6 @@ TEST(shownum_test, simpletest) {
     //printf("%s\n", inFile); works
     
     shownum(txt); //works
-    printf("\0");
    
     returnStream(outputFile, oldstdOut);
     
